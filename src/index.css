@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* SupportMT editorial palette */
+    --paper: #f8f7f2;
+    --ink: #252525;
+    --pine: #1d6151;
+    --gold: #fde460;
+    --blush: #ffd3f3;
+
+    /* shadcn tokens kept for template compatibility */
+    --background: 60 14% 96%;
+    --foreground: 0 0% 15%;
+    --card: 60 14% 96%;
+    --card-foreground: 0 0% 15%;
+    --popover: 60 14% 96%;
+    --popover-foreground: 0 0% 15%;
+    --primary: 0 0% 15%;
+    --primary-foreground: 60 14% 96%;
+    --secondary: 60 5% 92%;
+    --secondary-foreground: 0 0% 15%;
+    --muted: 60 5% 92%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 60 5% 92%;
+    --accent-foreground: 0 0% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 169 54% 25%;
+    --radius: 0px;
+    --sidebar-background: 60 14% 96%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 0 0% 15%;
+    --sidebar-primary-foreground: 60 14% 96%;
+    --sidebar-accent: 60 5% 92%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 169 54% 25%;
+  }
+
+  /* Editorial print aesthetic: zero border-radius everywhere */
+  * {
+    border-radius: 0 !important;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--ink);
+  }
+}
+
+/* ---------- signature motion primitives ---------- */
+
+/* SVG stroke draw-in (pathLength normalized to 1) */
+@keyframes draw-in {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-anim {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-in 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.contour-anim {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-in 2.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* slow topographic drift */
+@keyframes contour-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(16px, -10px, 0);
+  }
+}
+
+.contour-drift {
+  animation: contour-drift 30s ease-in-out infinite;
+}
+
+/* golden marker highlight swipe */
+@keyframes marker-swipe {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.marker-swipe {
+  transform-origin: left center;
+  animation: marker-swipe 0.55s 0.18s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+/* hero scroll cue */
+@keyframes scroll-cue {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+.scroll-cue-line {
+  animation: scroll-cue 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* golden highlighter for editorial copy */
+.hl {
+  background-color: var(--gold);
+  padding: 0 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* underline-on-hover text link */
+.u-link {
+  position: relative;
+}
+
+.u-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.u-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* SwapButton dual-label hover transition */
+.swap-label {
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* hero word cycler — vertical slide inside an overflow-hidden mask */
+@keyframes cycle-in {
+  from {
+    transform: translateY(115%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes cycle-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-115%);
+  }
+}
+
+.cycle-in {
+  animation: cycle-in 0.7s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.cycle-out {
+  animation: cycle-out 0.7s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+/* lenis smooth-scroll base styles */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
