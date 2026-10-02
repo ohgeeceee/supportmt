@@ -10,7 +10,7 @@ const LINKS = [
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-ink bg-paper">
+    <header className="sticky top-0 z-50 border-b border-ink/15 bg-paper/90 backdrop-blur-md">
       <div className="flex h-16 items-center justify-between px-5 md:h-[72px] md:px-12">
         <a
           href="#top"
@@ -40,7 +40,7 @@ export default function Nav() {
         </nav>
 
         <SwapButton
-          label="Donate"
+          label="Give now"
           size="sm"
           href="#donate"
           onClick={(e) => {

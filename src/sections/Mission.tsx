@@ -3,10 +3,10 @@ import Reveal from '@/components/Reveal'
 
 export default function Mission() {
   return (
-    <section id="mission" className="border-t border-ink px-5 py-[50px] md:px-12 md:py-[100px]">
+    <section id="mission" className="border-t border-ink/15 px-5 py-[70px] md:px-12 md:py-[130px]">
       <MicroLabel>01 — MISSION</MicroLabel>
 
-      <h2 className="mt-10 max-w-5xl font-display text-[clamp(1.85rem,4vw,3.5rem)] font-light leading-[1.14] tracking-[-0.02em]">
+      <h2 className="mt-10 max-w-5xl font-display text-[clamp(2.1rem,5vw,4.8rem)] font-light leading-[1.05] tracking-[-0.03em]">
         <Reveal>
           When a neighbor is in trouble, <span className="hl">Montana shows up.</span>
         </Reveal>

@@ -52,10 +52,10 @@ function Stat({
 
 export default function Impact() {
   return (
-    <section id="impact" className="px-5 py-[50px] md:px-12 md:py-[100px]">
+    <section id="impact" className="bg-blush/40 px-5 py-[70px] md:px-12 md:py-[130px]">
       <MicroLabel>03 — IMPACT</MicroLabel>
 
-      <div className="mt-10 grid grid-cols-1 divide-y divide-ink border-y border-ink md:grid-cols-4 md:divide-x md:divide-y-0">
+    <div className="mt-10 grid grid-cols-1 divide-y divide-ink/15 overflow-hidden rounded-[14px] border border-ink/15 bg-paper soft-card md:grid-cols-4 md:divide-x md:divide-y-0">
         <Stat value={1.2} format={money} label="Distributed to 3,400 Montana households" />
         <Stat value={56} format={whole} label="Counties served" />
         <Stat value={92} format={cents} label="Of every $1 goes to programs" />

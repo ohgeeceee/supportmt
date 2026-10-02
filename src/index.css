@@ -5,11 +5,11 @@
 @layer base {
   :root {
     /* SupportMT editorial palette */
-    --paper: #f8f7f2;
-    --ink: #252525;
-    --pine: #1d6151;
-    --gold: #fde460;
-    --blush: #ffd3f3;
+    --paper: #f5f3ed;
+    --ink: #10243d;
+    --pine: #145c58;
+    --gold: #f4a340;
+    --blush: #e8ded3;
 
     /* shadcn tokens kept for template compatibility */
     --background: 60 14% 96%;
@@ -31,7 +31,7 @@
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 169 54% 25%;
-    --radius: 0px;
+    --radius: 14px;
     --sidebar-background: 60 14% 96%;
     --sidebar-foreground: 0 0% 15%;
     --sidebar-primary: 0 0% 15%;
@@ -42,15 +42,12 @@
     --sidebar-ring: 169 54% 25%;
   }
 
-  /* Editorial print aesthetic: zero border-radius everywhere */
-  * {
-    border-radius: 0 !important;
-  }
-
   body {
     @apply bg-paper font-sans text-ink antialiased;
     text-rendering: optimizeLegibility;
   }
+
+  html { scroll-behavior: smooth; }
 
   ::selection {
     background: var(--gold);
@@ -140,6 +137,14 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+
+.grain {
+  background-image: radial-gradient(rgba(16,36,61,.12) .6px, transparent .6px);
+  background-size: 7px 7px;
+  opacity: .14;
+}
+
+.soft-card { box-shadow: 0 18px 50px rgba(16,36,61,.08); }
 
 /* underline-on-hover text link */
 .u-link {

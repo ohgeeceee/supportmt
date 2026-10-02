@@ -39,6 +39,7 @@ export default function Hero() {
 
   return (
     <section ref={rootRef} className="relative flex min-h-svh flex-col overflow-hidden">
+      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
       <Contour
         className="pointer-events-none absolute inset-0 h-full w-full text-ink opacity-[0.12]"
         rings={6}
@@ -54,7 +55,7 @@ export default function Hero() {
         <h1 className="mt-8 font-display font-light leading-[0.98] tracking-[-0.02em]">
           <span className="block overflow-hidden">
             <span data-hero-line className="block text-[clamp(2.8rem,9vw,8rem)]">
-              WE SUPPORT
+              KEEP MONTANA
             </span>
           </span>
 
@@ -83,7 +84,7 @@ export default function Hero() {
 
         <p data-hero-fade className="mt-10 max-w-md text-base leading-relaxed text-ink/75 md:text-lg">
           A community-resilience fund moving money, crews, and supplies to Montana neighbors facing
-          wildfire, hardship, and hunger — in all 56 counties.
+          wildfire, hardship, and hunger — in all 56 counties. Give locally. See the difference.
         </p>
       </div>
 
