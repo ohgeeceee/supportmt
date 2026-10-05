@@ -3,7 +3,7 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  "redirects": [
+    { "source": "/(.*)", "destination": "https://ohgeec.com", "permanent": true }
   ]
 }
